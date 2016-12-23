@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E44C20EE-BD77-4FA1-8C7F-51E441B4113F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{15B55DA7-FBC4-4A84-9B21-EE165110A7FB}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ShoppingCart", "src\ShoppingCart\ShoppingCart.xproj", "{3507148C-7634-436C-83E1-E1D06DBEC798}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LoyaltyProgram", "src\LoyaltyProgram\LoyaltyProgram.xproj", "{21BFE37A-D224-440A-81BC-9664DA21F7DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGetwayMock", "src\ApiGetwayMock\ApiGetwayMock.csproj", "{25F80091-1A25-4188-A8D8-D4082596A7D8}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ProductCatalog", "src\ProductCatalog\ProductCatalog.xproj", "{F5A7D4BE-15E9-40AF-A25F-D2573A8B1224}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3507148C-7634-436C-83E1-E1D06DBEC798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3507148C-7634-436C-83E1-E1D06DBEC798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3507148C-7634-436C-83E1-E1D06DBEC798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3507148C-7634-436C-83E1-E1D06DBEC798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21BFE37A-D224-440A-81BC-9664DA21F7DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21BFE37A-D224-440A-81BC-9664DA21F7DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21BFE37A-D224-440A-81BC-9664DA21F7DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21BFE37A-D224-440A-81BC-9664DA21F7DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25F80091-1A25-4188-A8D8-D4082596A7D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25F80091-1A25-4188-A8D8-D4082596A7D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25F80091-1A25-4188-A8D8-D4082596A7D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25F80091-1A25-4188-A8D8-D4082596A7D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5A7D4BE-15E9-40AF-A25F-D2573A8B1224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A7D4BE-15E9-40AF-A25F-D2573A8B1224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A7D4BE-15E9-40AF-A25F-D2573A8B1224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A7D4BE-15E9-40AF-A25F-D2573A8B1224}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3507148C-7634-436C-83E1-E1D06DBEC798} = {E44C20EE-BD77-4FA1-8C7F-51E441B4113F}
+		{21BFE37A-D224-440A-81BC-9664DA21F7DB} = {E44C20EE-BD77-4FA1-8C7F-51E441B4113F}
+		{25F80091-1A25-4188-A8D8-D4082596A7D8} = {E44C20EE-BD77-4FA1-8C7F-51E441B4113F}
+		{F5A7D4BE-15E9-40AF-A25F-D2573A8B1224} = {E44C20EE-BD77-4FA1-8C7F-51E441B4113F}
+	EndGlobalSection
+EndGlobal
