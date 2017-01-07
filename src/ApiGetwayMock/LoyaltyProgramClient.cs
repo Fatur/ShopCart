@@ -17,7 +17,10 @@ namespace ApiGetwayMock
               attempt => TimeSpan.FromMilliseconds(100 * Math.Pow(2, attempt)),
               (_, __) => Console.WriteLine("retrying..." + _)
             );
-
+        private static Policy circuitBreaker =
+          Policy
+            .Handle<Exception>()
+            .CircuitBreaker(5, TimeSpan.FromMinutes(5));
         private string hostName;
 
         public LoyaltyProgramClient(string loyalProgramMicroserviceHostName)
@@ -27,7 +30,7 @@ namespace ApiGetwayMock
 
         public async Task<HttpResponseMessage> QueryUser(int userId)
         {
-            return await exponentialRetryPolicy.ExecuteAsync(() => DoUserQuery(userId));
+            return await circuitBreaker.ExecuteAsync(() => DoUserQuery(userId));
         }
 
         private async Task<HttpResponseMessage> DoUserQuery(int userId)
