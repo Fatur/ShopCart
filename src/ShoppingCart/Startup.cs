@@ -41,8 +41,20 @@ namespace ShoppingCart
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            
+           
+            app.UseOwin(buildFunc =>
+            {
+                buildFunc(next =>
+                    new MonitoringMiddleware(next, HealthCheck).Invoke);
+            });
 
             app.UseMvc();
+        }
+
+        private Task<bool> HealthCheck()
+        {
+            return Task.FromResult<bool>(false);
         }
     }
 }
