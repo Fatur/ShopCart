@@ -20,10 +20,6 @@ namespace ShoppingCart
                 3,
                 attempt => TimeSpan.FromMilliseconds(100 * Math.Pow(2, attempt)), (ex, _) => Console.WriteLine(ex.ToString()));
 
-        //private static string productCatalogueBaseUrl =
-        //  @"http://private-05cc8-chapter2productcataloguemicroservice.apiary-mock.com";
-        //private static string getProductPathTemplate =
-        //  "/products?productIds=[{0}]";
         private static string productCatalogueBaseUrl = @"http://localhost:5002";
         private static string getProductPathTemplate = "/api/products?{0}";
         private readonly ICache m_cache = null;
