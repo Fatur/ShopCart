@@ -8,13 +8,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ShoppingCart.Models;
-
+using Serilog;
 namespace ShoppingCart
 {
     public class Startup
     {
         public Startup(IHostingEnvironment env)
         {
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .WriteTo.ColoredConsole(Serilog.Events.LogEventLevel.Verbose,
+                "{NewLine}{Timestamp:HH:mm:ss} [{Level}] ({CorrelationToken}) {Message}{NewLine}{Exception}")
+                .CreateLogger();
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -39,14 +44,17 @@ namespace ShoppingCart
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-            
+            //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            //loggerFactory.AddDebug();
+            loggerFactory.AddSerilog();
            
             app.UseOwin(buildFunc =>
             {
-                buildFunc(next =>
-                    new MonitoringMiddleware(next, HealthCheck).Invoke);
+                buildFunc(next => GlobalErrorLogging.Middleware(next, Log.Logger));
+                buildFunc(next => CorrelationToken.Middleware(next));
+                buildFunc(next => RequestLogging.Middleware(next, Log.Logger));
+                buildFunc(next => PerformanceLogging.Middleware(next, Log.Logger));
+                buildFunc(next =>new MonitoringMiddleware(next, HealthCheck).Invoke);
             });
 
             app.UseMvc();

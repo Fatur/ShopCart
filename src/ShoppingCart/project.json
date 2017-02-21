@@ -17,7 +17,10 @@
     "Polly": "4.3.0",
     "Dapper": "1.50.2",
     "EventStore.ClientAPI.NetCore": "0.0.1-alpha",
-    "Microsoft.AspNetCore.Owin": "1.1.0"},
+    "Microsoft.AspNetCore.Owin": "1.1.0",
+    "Serilog": "2.4.0-dev-00771",
+    "Serilog.Extensions.Logging": "1.4.0-dev-10138",
+    "Serilog.Sinks.ColoredConsole": "2.1.0-dev-00713"},
 
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.1.0-preview4-final",
